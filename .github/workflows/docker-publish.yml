@@ -26,4 +26,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/iris-ml-api:latest
+          tags: sumit1gh999/iris-ml-api:latest
