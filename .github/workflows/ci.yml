@@ -1,4 +1,4 @@
-name: Python CI Pipeline
+name: ML CI Pipeline
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,8 +25,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify Python
-        run: python --version
+      - name: Run API Tests
+        run: pytest -v test_app.py
 
-      - name: Check Application Import
-        run: python -c "import app; print('Application imported successfully')"
+      - name: Run Model Tests
+        run: pytest -v test_model.py
